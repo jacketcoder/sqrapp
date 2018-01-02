@@ -39,6 +39,7 @@ public class BitcoinTest {
 
         byte[] pubBytes = keyPair.getPublic();
         String computedAddress = instance.address(pubBytes);
+        System.out.print(computedAddress);
         assertEquals(address, computedAddress);
     }
 }

@@ -69,7 +69,7 @@ public class Bitcoin implements CryptoCurrency {
         }
         byte[] keyHash = ByteUtils.keyHash(pubBytes);
         byte[] keyHashWithVersion = new byte[keyHash.length + 1];
-        keyHashWithVersion[0] = 0x00; // version byte
+        keyHashWithVersion[0] = 0x30; // version byte
         System.arraycopy(keyHash, 0, keyHashWithVersion, 1, keyHash.length);
         return ByteUtils.toBase58WithChecksum(keyHashWithVersion);
     }
