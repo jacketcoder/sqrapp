@@ -23,15 +23,15 @@ public class Litecoin implements CryptoCurrency{
 
     @Override
     public byte[] newPrivateKey() {
-         BitcoinExtendedKey mWavesKeyHelper= BitcoinExtendedKey.createNew();
-         return mWavesKeyHelper.getMaster().getPrivate();
+         BitcoinExtendedKey mLiteCoinKeyHelper= BitcoinExtendedKey.createNew();
+         return mLiteCoinKeyHelper.getMaster().getPrivate();
     }
 
     @Override
     public byte[] newPrivateKey(byte[] seed) {
         try {
-            BitcoinExtendedKey mWavesKeyHelper= BitcoinExtendedKey.create(seed);
-            return mWavesKeyHelper.getMaster().getPrivate();
+            BitcoinExtendedKey mLiteCoinKeyHelper= BitcoinExtendedKey.create(seed);
+            return mLiteCoinKeyHelper.getMaster().getPrivate();
         } catch (ValidationException e) {
             mLog.error("private key creation became unsuccessful");
         }
@@ -41,8 +41,8 @@ public class Litecoin implements CryptoCurrency{
     @Override
     public byte[] newPrivateKey(byte[] seed, int index) {
         try {
-            BitcoinExtendedKey mWavesKeyHelper = BitcoinExtendedKey.create(seed);
-            return mWavesKeyHelper.getChild(index).getMaster().getPrivate();
+            BitcoinExtendedKey mLiteCoinKeyHelper = BitcoinExtendedKey.create(seed);
+            return mLiteCoinKeyHelper.getChild(index).getMaster().getPrivate();
         } catch (ValidationException e) {
             mLog.error("Could not create bitcoin private key[{}]", index, e);
         }
